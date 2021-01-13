@@ -12,7 +12,7 @@ class Thai2fit:
         self.word_postprocessing = re.compile(r'(\w) (\w)')
     def tokenizer_thai2fit(self, text):
         return THAI2FIT_TOKENIZER.word_tokenize(text)
-    def load_w2v(self, action="substitute"):
+    def load_w2v(self, action="substitute"): # insert substitute
         self.aug = naw.WordEmbsAug(
             model_type='word2vec', model_path=self.thai2fit_wv,
             action=action,tokenizer=self.tokenizer_thai2fit
