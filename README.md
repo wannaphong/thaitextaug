@@ -1,1 +1,3 @@
-# thaitextaug
+# ThaiTextAug
+
+Thai Text Augmentation
