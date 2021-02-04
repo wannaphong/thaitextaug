@@ -37,6 +37,6 @@ class WordNet:
             if len(word)<=3 : continue 
             for synonym in self.find_synonyms(word)[0:max_syn_per_word]:
                 synonym = synonym.replace('_', ' ') #restore space character
-                new_sentence = sentence.replace(word,synonym)
+                new_sentence = sentence.replace(word,synonym,1)
                 new_sentences.append(new_sentence)
         return new_sentences
