@@ -48,3 +48,5 @@ class Thai2fit:
             self.word_postprocessing.sub(r'\1\2',i).replace('   ',' ') for i in self.aug.augment(sentence, n_sent)
         ]
         return list_aug
+
+from .BPEmb import BPEmb
