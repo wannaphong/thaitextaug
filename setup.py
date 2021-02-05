@@ -7,13 +7,14 @@ with open("README.md", "r") as f:
 requirements = [
     "pythainlp>=2.0",
     "nlpaug",
-    "transformers"
+    #"transformers",
+    #"thai2transformers"
 ]
 
 
 setup(
     name="thaitextaug",
-    version="0.0.1dev0",
+    version="0.0.1.dev0",
     description="Thai Text Augmentation",
     long_description=readme,
     long_description_content_type="text/markdown",
