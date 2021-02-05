@@ -31,6 +31,10 @@ class WordNet:
         Text Augment using wordnet
 
         :param str sentence: thai sentence
+        :param object tokenize: function for tokenize word
+        :param int max_syn_per_word: number max for synonyms per word
+
+        :return: list of synonyms
         """
         new_sentences = []
         for word in word_tokenize(sentence):
