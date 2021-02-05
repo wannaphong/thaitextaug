@@ -3,8 +3,8 @@ from bpemb import BPEmb
 from typing import List
 
 class BPEmb_aug:
-    def __init__(self, lang: str = "th", dim: int = 300):
-        self.bpemb_temp = BPEmb(lang=lang, dim=dim)
+    def __init__(self, lang: str = "th", vs:int = 100000, dim: int = 300):
+        self.bpemb_temp = BPEmb(lang=lang, dim=dim, vs= vs)
         self.model = self.bpemb_temp.emb
         self.load_w2v()
     def tokenizer(self, text):
