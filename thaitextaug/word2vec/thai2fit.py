@@ -10,11 +10,11 @@ class Thai2fit:
     def __init__(self):
         self.thai2fit_wv = get_corpus_path('thai2fit_wv')
         self.load_w2v()
-    def tokenizer_thai2fit(self, text: str):
+    def tokenizer(self, text: str):
         return THAI2FIT_TOKENIZER.word_tokenize(text)
     def load_w2v(self): # insert substitute
-        self.aug = Word2VecAug(self.thai2fit_wv, self.tokenizer_thai2fit, type="binary")
-    def augment(self, sentence: str, n_sent: int = 1) -> List[str]:
+        self.aug = Word2VecAug(self.thai2fit_wv, self.tokenizer, type="binary")
+    def augment(self, sentence: str, n_sent: int = 1, p: int = 0.7) -> List[str]:
         """
         Text Augment using word2vec from Thai2Fit
 
@@ -23,4 +23,4 @@ class Thai2fit:
 
         :return: list of synonyms
         """
-        return self.aug.augment(sentence, n_sent)
+        return self.aug.augment(sentence, n_sent, p)

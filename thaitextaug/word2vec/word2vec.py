@@ -46,7 +46,8 @@ class Word2VecAug:
                 list_sent_new.append(i)
         return list_sent_new
     def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[str]:
+        self.sentence = self.tokenizer(sentence)
         self.temp = []
         for i in range(n_sent):
-            self.temp += [self.modify_sent(sentence, p = p)]
+            self.temp += [self.modify_sent(self.sentence, p = p)]
         return self.temp
