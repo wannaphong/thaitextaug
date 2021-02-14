@@ -3,6 +3,7 @@ from thaitextaug.word2vec import Word2VecAug
 from bpemb import BPEmb
 from typing import List
 
+
 class BPEmbAug:
     def __init__(self, lang: str = "th", vs:int = 100000, dim: int = 300):
         self.bpemb_temp = BPEmb(lang=lang, dim=dim, vs= vs)

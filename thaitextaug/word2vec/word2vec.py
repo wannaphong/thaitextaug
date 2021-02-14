@@ -1,27 +1,8 @@
 # -*- coding: utf-8 -*-
-import nlpaug.augmenter.word as naw
 from typing import List
 import gensim.models.keyedvectors as word2vec
 import random
 
-class NLPaug:
-    def __init__(self, model_path: str, tokenize: object, action: str, model_type: str = 'word2vec'):
-        self.wn_path = model_path
-        self.tokenizer = tokenize
-        self.aug = naw.WordEmbsAug(
-            model_type=model_type, model_path= self.wn_path,
-            action=action,tokenizer=self.tokenizer
-        )
-    def augment(self, sentence: str, n_sent: int = 1) -> List[str]:
-        """
-        Text Augment using word2vec
-
-        :param str sentence: thai sentence
-        :param int n_sent: number sentence
-
-        :return: list of synonyms
-        """
-        return self.aug.augment(sentence, n=n_sent)
 
 class Word2VecAug:
     def __init__(self, model: str, tokenize: object, type = "file"):

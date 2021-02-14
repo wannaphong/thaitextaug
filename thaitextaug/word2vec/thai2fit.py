@@ -6,7 +6,7 @@ from pythainlp.tokenize import THAI2FIT_TOKENIZER
 from typing import List
 
 
-class Thai2fit:
+class Thai2fitAug:
     def __init__(self):
         self.thai2fit_wv = get_corpus_path('thai2fit_wv')
         self.load_w2v()

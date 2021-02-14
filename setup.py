@@ -6,7 +6,6 @@ with open("README.md", "r") as f:
 
 requirements = [
     "pythainlp>=2.0",
-    "nlpaug",
     "bpemb",
     #"transformers",
     #"thai2transformers"
