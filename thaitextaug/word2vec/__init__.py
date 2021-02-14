@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Transliteration.
+Word2Vec
 """
 
 __all__ = [

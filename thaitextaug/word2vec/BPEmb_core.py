@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from thaitextaug.word2vec import Word2VecAug
 from bpemb import BPEmb
 from typing import List
