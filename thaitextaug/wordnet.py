@@ -10,7 +10,7 @@ from typing import List
 from nltk.corpus import wordnet as wn
 import random
 
-lst20= {
+lst20 = {
     "": "",
     "AJ": wn.ADJ,
     "AV": wn.ADV,
@@ -127,6 +127,8 @@ class WordNetAug:
         Find synonyms from wordnet
 
         :param str word: word
+        :param str pos: part of speech
+        :param str postag_corpus: postag corpus name
         :return: list of synonyms
         """
         self.synonyms = []
@@ -146,21 +148,30 @@ class WordNetAug:
         # using this to drop duplicates while maintaining word order (closest synonyms comes first)
         self.synonyms_without_duplicates = list(OrderedDict.fromkeys(self.synonyms))
         return self.synonyms_without_duplicates
-    def gen_sent(self,list_words,list_synonym,index):
+    def gen_sent(self,list_words: list,dict_synonym: dict,index: int):
+        """
+        :param list list_words: list words
+        :param dict dict_synonym: dict synonym words
+        :param int index: index of list words
+
+        :return: list of sent
+        """
         word = list_words[index]
-        w = random.choice(list_synonym[word])
+        w = random.choice(dict_synonym[word])
         if index!=len(list_words)-1:
             index+=1
-            return [w]+self.gen_sent(list_words,list_synonym,index)
+            return [w]+self.gen_sent(list_words,dict_synonym,index)
         else:
             return [w]
-    def augment(self, sentence: str, tokenize: object = word_tokenize, max_syn_sent: int = 6, postag = True, postag_corpus = "lst20") -> List[str]:
+    def augment(self, sentence: str, tokenize: object = word_tokenize, max_syn_sent: int = 6, postag: bool = True, postag_corpus: str = "lst20") -> List[List[str]]:
         """
         Text Augment using wordnet
 
         :param str sentence: thai sentence
         :param object tokenize: function for tokenize word
-        :param int max_syn_per_word: number max for synonyms per word
+        :param int max_syn_sent: number max for synonyms sent
+        :param bool postag: on part-of-speech
+        :param str postag_corpus: postag corpus name
 
         :return: list of synonyms
         """
