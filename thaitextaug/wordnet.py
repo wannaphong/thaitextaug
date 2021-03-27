@@ -2,6 +2,11 @@
 """
 Thank https://dev.to/ton_ami/text-data-augmentation-synonym-replacement-4h8l
 """
+__all__ = [
+    "WordNetAug",
+    "postype2wordnet",
+]
+
 from pythainlp.corpus import wordnet
 from collections import OrderedDict
 from pythainlp.tokenize import word_tokenize
@@ -109,7 +114,7 @@ orchid = {
     "PUNC": "",
 }
 
-def postype2wordnet(pos, corpus):
+def postype2wordnet(pos: str, corpus: str):
     if corpus not in ['lst20', 'orchid']:
         return None
     if corpus == 'lst20':
