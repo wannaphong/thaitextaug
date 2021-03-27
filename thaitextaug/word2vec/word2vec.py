@@ -15,7 +15,7 @@ class Word2VecAug:
             self.model = model
     def modify_sent(self,sent, p = 0.7):
         list_sent_new = []
-        dict_wv = list(self.model.vocab.keys())
+        dict_wv = list(self.model.wv.key_to_index)
         for i in sent:
             if i in dict_wv:
                 w = [j for j,v in self.model.most_similar(i) if v>=p]
