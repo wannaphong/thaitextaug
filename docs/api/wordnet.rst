@@ -7,6 +7,5 @@ Modules
 -------
 
 .. autoclass:: WordNetAug
-    :members: augment
-    :members: find_synonyms
+    :members:
  
