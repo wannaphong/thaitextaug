@@ -1,6 +1,8 @@
 ThaiTextAug
 ===========
 
+Thai Text Augmentation
+
 .. toctree::
    :glob:
    :maxdepth: 1
