@@ -20,7 +20,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .
         pip install boto smart_open sphinx sphinx-rtd-theme
-    - uses: seanzhengw/sphinx-pages@master
+    - name: Build sphinx documentation
+      run: |
+        cd docs && make html
+        cd ..
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        create_readme: true
+        publish_dir: ./docs/_build/html
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
