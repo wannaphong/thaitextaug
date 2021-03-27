@@ -1,0 +1,26 @@
+name: Deploy Docs dev
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        sudo apt install pandoc
+        python -m pip install --upgrade pip
+        pip install -e .
+        pip install boto smart_open sphinx sphinx-rtd-theme
+    - uses: seanzhengw/sphinx-pages@master
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        create_readme: true

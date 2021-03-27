@@ -1,3 +1,0 @@
-# ThaiTextAug
-
-Thai Text Augmentation
