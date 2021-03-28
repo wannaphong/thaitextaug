@@ -165,7 +165,7 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">thaitextaug.word2vec.</span></code><code class="sig-name descname"><span class="pre">Word2VecAug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'file'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.Word2VecAug" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="thaitextaug.word2vec.Word2VecAug.augment">
-<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.Word2VecAug.augment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.Word2VecAug.augment" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -178,20 +178,64 @@
 <dd class="field-even"><p>list of synonyms</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[List[str]]</p>
+<dd class="field-odd"><p>List[Tuple[str]]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="thaitextaug.word2vec.Word2VecAug.modify_sent">
-<code class="sig-name descname"><span class="pre">modify_sent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.Word2VecAug.modify_sent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">modify_sent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.Word2VecAug.modify_sent" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sent</strong> (<em>str</em>) – text sentence</p></li>
 <li><p><strong>p</strong> (<em>int</em>) – probability</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[List[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="thaitextaug.word2vec.BPEmbAug">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">thaitextaug.word2vec.</span></code><code class="sig-name descname"><span class="pre">BPEmbAug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'th'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.BPEmbAug" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="thaitextaug.word2vec.BPEmbAug.augment">
+<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.BPEmbAug.augment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text Augment using word2vec from bpemb</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sentence</strong> (<em>str</em>) – thai sentence</p></li>
+<li><p><strong>n_sent</strong> (<em>int</em>) – number sentence</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of synonyms</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Tuple[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thaitextaug.word2vec.BPEmbAug.load_w2v">
+<code class="sig-name descname"><span class="pre">load_w2v</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.BPEmbAug.load_w2v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load bpemb model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thaitextaug.word2vec.BPEmbAug.tokenizer">
+<code class="sig-name descname"><span class="pre">tokenizer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.BPEmbAug.tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – thai text</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>List[str]</p>
@@ -202,16 +246,11 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="thaitextaug.word2vec.BPEmbAug">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">thaitextaug.word2vec.</span></code><code class="sig-name descname"><span class="pre">BPEmbAug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'th'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.BPEmbAug" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
 <dt id="thaitextaug.word2vec.Thai2fitAug">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">thaitextaug.word2vec.</span></code><code class="sig-name descname"><span class="pre">Thai2fitAug</span></code><a class="headerlink" href="#thaitextaug.word2vec.Thai2fitAug" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="thaitextaug.word2vec.Thai2fitAug.augment">
-<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.Thai2fitAug.augment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.word2vec.Thai2fitAug.augment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text Augment using word2vec from Thai2Fit</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -223,7 +262,16 @@
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of synonyms</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Tuple[str]]</p>
+</dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="thaitextaug.word2vec.Thai2fitAug.load_w2v">
+<code class="sig-name descname"><span class="pre">load_w2v</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.word2vec.Thai2fitAug.load_w2v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load thai2fit word2vec model</p>
 </dd></dl>
 
 <dl class="py method">
