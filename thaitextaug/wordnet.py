@@ -135,6 +135,7 @@ class WordNetAug:
         :param str pos: part of speech
         :param str postag_corpus: postag corpus name
         :return: list of synonyms
+        :rtype: List[str]
         """
         self.synonyms = []
         if pos == None:
@@ -153,13 +154,14 @@ class WordNetAug:
         # using this to drop duplicates while maintaining word order (closest synonyms comes first)
         self.synonyms_without_duplicates = list(OrderedDict.fromkeys(self.synonyms))
         return self.synonyms_without_duplicates
-    def gen_sent(self,list_words: list,dict_synonym: dict,index: int):
+    def gen_sent(self,list_words: list,dict_synonym: dict,index: int) -> List[str]:
         """
         :param list list_words: list words
         :param dict dict_synonym: dict synonym words
         :param int index: index of list words
 
-        :return: list of sent
+        :return: list of sentence
+        :rtype: List[str]
         """
         word = list_words[index]
         w = random.choice(dict_synonym[word])
@@ -174,11 +176,12 @@ class WordNetAug:
 
         :param str sentence: thai sentence
         :param object tokenize: function for tokenize word
-        :param int max_syn_sent: number max for synonyms sent
+        :param int max_syn_sent: max number for synonyms sentence
         :param bool postag: on part-of-speech
         :param str postag_corpus: postag corpus name
 
         :return: list of synonyms
+        :rtype: List[List[str]]
         """
         new_sentences = []
         self.list_words = word_tokenize(sentence)

@@ -10,7 +10,11 @@ class Thai2fitAug:
     def __init__(self):
         self.thai2fit_wv = get_corpus_path('thai2fit_wv')
         self.load_w2v()
-    def tokenizer(self, text: str):
+    def tokenizer(self, text: str) -> List[str]:
+        """
+        :param str text: thai text
+        :rtype: List[str]
+        """
         return THAI2FIT_TOKENIZER.word_tokenize(text)
     def load_w2v(self): # insert substitute
         self.aug = Word2VecAug(self.thai2fit_wv, self.tokenizer, type="binary")
