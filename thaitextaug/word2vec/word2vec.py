@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import List
+from typing import List, Tuple
 import gensim.models.keyedvectors as word2vec
-import random
+import itertools
 
 
 class Word2VecAug:
@@ -19,34 +19,35 @@ class Word2VecAug:
         else:
             self.model = model
         self.dict_wv = list(self.model.vocab.keys())
-    def modify_sent(self,sent, p = 0.7):
+    def modify_sent(self,sent, p = 0.7) -> List[List[str]]:
         """
         :param str sent: text sentence
         :param int p: probability
-        :rtype: List[str]
+        :rtype: List[List[str]]
         """
         list_sent_new = []
         for i in sent:
             if i in self.dict_wv:
                 w = [j for j,v in self.model.most_similar(i) if v>=p]
-                if w!=[]:
-                    list_sent_new.append(random.choice(w))
+                if w == []:
+                    list_sent_new.append([i])
                 else:
-                    list_sent_new.append(i)
+                    list_sent_new.append(w)
             else:
-                list_sent_new.append(i)
+                list_sent_new.append([i])
         return list_sent_new
-    def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[List[str]]:
+    def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[Tuple[str]]:
         """
         :param str sentence: text sentence
         :param int n_sent: max number for synonyms sentence
         :param int p: probability
 
         :return: list of synonyms
-        :rtype: List[List[str]]
+        :rtype: List[Tuple[str]]
         """
         self.sentence = self.tokenizer(sentence)
-        self.temp = []
-        for i in range(n_sent):
-            self.temp += [self.modify_sent(self.sentence, p = p)]
-        return self.temp
+        self.list_synonym = self.modify_sent(self.sentence, p = p)
+        new_sentences = []
+        for x in list(itertools.product(*self.list_synonym))[0:n_sent]:
+            new_sentences.append(x)
+        return new_sentences

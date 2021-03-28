@@ -8,7 +8,6 @@ requirements = [
     "pythainlp>=2.0",
     "bpemb",
     "gensim",
-    "nlpaug",
     "nltk"
     #"transformers",
     #"thai2transformers"

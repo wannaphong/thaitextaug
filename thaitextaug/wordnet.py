@@ -13,7 +13,7 @@ from pythainlp.tokenize import word_tokenize
 from pythainlp.tag import pos_tag
 from typing import List
 from nltk.corpus import wordnet as wn
-import random
+import itertools
 
 lst20 = {
     "": "",
@@ -154,22 +154,6 @@ class WordNetAug:
         # using this to drop duplicates while maintaining word order (closest synonyms comes first)
         self.synonyms_without_duplicates = list(OrderedDict.fromkeys(self.synonyms))
         return self.synonyms_without_duplicates
-    def gen_sent(self,list_words: list,dict_synonym: dict,index: int) -> List[str]:
-        """
-        :param list list_words: list words
-        :param dict dict_synonym: dict synonym words
-        :param int index: index of list words
-
-        :return: list of sentence
-        :rtype: List[str]
-        """
-        word = list_words[index]
-        w = random.choice(dict_synonym[word])
-        if index!=len(list_words)-1:
-            index+=1
-            return [w]+self.gen_sent(list_words,dict_synonym,index)
-        else:
-            return [w]
     def augment(self, sentence: str, tokenize: object = word_tokenize, max_syn_sent: int = 6, postag: bool = True, postag_corpus: str = "lst20") -> List[List[str]]:
         """
         Text Augment using wordnet
@@ -181,37 +165,31 @@ class WordNetAug:
         :param str postag_corpus: postag corpus name
 
         :return: list of synonyms
-        :rtype: List[List[str]]
+        :rtype: List[Tuple[str]]
         """
         new_sentences = []
         self.list_words = word_tokenize(sentence)
-        self.list_synonym = {w:[] for w in self.list_words}
+        self.list_synonym = []
         self.p_all = 1
         if postag:
             self.list_pos = pos_tag(self.list_words, corpus=postag_corpus)
             for word, pos in self.list_pos:
                 self.temp = self.find_synonyms(word, pos, postag_corpus)
                 if self.temp == []:
-                    self.list_synonym[word] = [word]
+                    self.list_synonym.append([word])
                 else:
-                    self.list_synonym[word] = self.temp
+                    self.list_synonym.append(self.temp)
                     self.p_all*= len(self.temp)
         else:
             for word in self.list_words:
-                self.list_synonym[word] = self.find_synonyms(word) 
+                self.temp = self.find_synonyms(word) 
                 if self.temp == []:
-                    self.list_synonym[word] = [word]
+                    self.list_synonym.append([word])
                 else:
-                    self.list_synonym[word] = self.temp
+                    self.list_synonym.append(self.temp)
                     self.p_all*= len(self.temp)
         if max_syn_sent > self.p_all:
             max_syn_sent = self.p_all
-        i = 0
-        while len(new_sentences)<max_syn_sent:
-            self.t = self.gen_sent(self.list_words,self.list_synonym,0)
-            if self.t not in new_sentences:
-                new_sentences.append(self.t)
-                i=0
-            else:
-                i+=1
+        for x in list(itertools.product(*self.list_synonym))[0:max_syn_sent]:
+            new_sentences.append(x)
         return new_sentences

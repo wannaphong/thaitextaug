@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from thaitextaug.word2vec import Word2VecAug
 from bpemb import BPEmb
-from typing import List
+from typing import List, Tuple
 
 
 class BPEmbAug:
@@ -9,11 +9,27 @@ class BPEmbAug:
         self.bpemb_temp = BPEmb(lang=lang, dim=dim, vs= vs)
         self.model = self.bpemb_temp.emb
         self.load_w2v()
-    def tokenizer(self, text: str):
+    def tokenizer(self, text: str) -> List[str]:
+        """
+        :param str text: thai text
+        :rtype: List[str]
+        """
         return self.bpemb_temp.encode(text)
     def load_w2v(self):
+        """
+        Load bpemb model
+        """
         self.aug = Word2VecAug(self.model, tokenize=self.tokenizer, type="model")
-    def augment(self, sentence: str, n_sent: int = 1, p = 0.7) -> List[str]:
+    def augment(self, sentence: str, n_sent: int = 1, p = 0.7)  -> List[Tuple[str]]:
+        """
+        Text Augment using word2vec from bpemb
+
+        :param str sentence: thai sentence
+        :param int n_sent: number sentence
+
+        :return: list of synonyms
+        :rtype: List[Tuple[str]]
+        """
         self.sentence =  sentence.replace(" ","▁")
         self.temp = self.aug.augment(self.sentence, n_sent, p = p)
         self.temp_new = []

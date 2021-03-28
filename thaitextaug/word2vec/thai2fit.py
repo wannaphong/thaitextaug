@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from thaitextaug.word2vec import Word2VecAug
-import nlpaug.augmenter.word as naw
 from pythainlp.corpus import get_corpus_path
 from pythainlp.tokenize import THAI2FIT_TOKENIZER
-from typing import List
+from typing import List, Tuple
 
 
 class Thai2fitAug:
@@ -17,8 +16,11 @@ class Thai2fitAug:
         """
         return THAI2FIT_TOKENIZER.word_tokenize(text)
     def load_w2v(self): # insert substitute
+        """
+        Load thai2fit word2vec model
+        """
         self.aug = Word2VecAug(self.thai2fit_wv, self.tokenizer, type="binary")
-    def augment(self, sentence: str, n_sent: int = 1, p: int = 0.7) -> List[str]:
+    def augment(self, sentence: str, n_sent: int = 1, p: int = 0.7) -> List[Tuple[str]]:
         """
         Text Augment using word2vec from Thai2Fit
 
@@ -26,5 +28,6 @@ class Thai2fitAug:
         :param int n_sent: number sentence
 
         :return: list of synonyms
+        :rtype: List[Tuple[str]]
         """
         return self.aug.augment(sentence, n_sent, p)
