@@ -176,13 +176,16 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>sentence</strong> (<em>str</em>) – thai sentence</p></li>
 <li><p><strong>tokenize</strong> (<em>object</em>) – function for tokenize word</p></li>
-<li><p><strong>max_syn_sent</strong> (<em>int</em>) – number max for synonyms sent</p></li>
+<li><p><strong>max_syn_sent</strong> (<em>int</em>) – max number for synonyms sentence</p></li>
 <li><p><strong>postag</strong> (<em>bool</em>) – on part-of-speech</p></li>
 <li><p><strong>postag_corpus</strong> (<em>str</em>) – postag corpus name</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of synonyms</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[List[str]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -202,12 +205,15 @@
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of synonyms</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="thaitextaug.wordnet.WordNetAug.gen_sent">
-<code class="sig-name descname"><span class="pre">gen_sent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_words</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_synonym</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.gen_sent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">gen_sent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_words</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_synonym</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.gen_sent" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -217,7 +223,10 @@
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of sent</p>
+<dd class="field-even"><p>list of sentence</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[str]</p>
 </dd>
 </dl>
 </dd></dl>
