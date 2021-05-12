@@ -8,6 +8,18 @@ Thai Text Augmentation: Thai Text Augmentation Tool
 pip install thaitextaug
 ```
 
+for fasttext
+
+```sh
+pip install thaitextaug[fasttext]
+```
+
+for all
+
+```sh
+pip install thaitextaug[all]
+```
+
 ## Docs
 
 You can read The API docs at [github.wannaphong.com/thaitextaug](https://github.wannaphong.com/thaitextaug/index.html)
