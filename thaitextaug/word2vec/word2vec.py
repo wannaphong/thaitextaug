@@ -22,7 +22,7 @@ class Word2VecAug:
     def modify_sent(self,sent, p = 0.7) -> List[List[str]]:
         """
         :param str sent: text sentence
-        :param int p: probability
+        :param float p: probability
         :rtype: List[List[str]]
         """
         list_sent_new = []

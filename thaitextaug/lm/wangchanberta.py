@@ -41,7 +41,7 @@ class Thai2transformersAug:
                                     self.model_name,
                                     revision='main')
         self.tokenizer.additional_special_tokens = ['<s>NOTUSED', '</s>NOTUSED', '<_>']
-    def fill_mask(self, input_text):
+    def fill_mask(self, input_text: str):
         self.fill_mask = pipeline(
             task='fill-mask',
             tokenizer=self.tokenizer,

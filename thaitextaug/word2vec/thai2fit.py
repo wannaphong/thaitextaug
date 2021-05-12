@@ -31,6 +31,7 @@ class Thai2fitAug:
 
         :param str sentence: thai sentence
         :param int n_sent: number sentence
+        :param float p: Probability of word
 
         :return: list of synonyms
         :rtype: List[Tuple[str]]

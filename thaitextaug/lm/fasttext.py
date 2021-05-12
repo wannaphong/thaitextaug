@@ -6,6 +6,9 @@ from gensim.models.keyedvectors import KeyedVectors
 import random
 
 class FastTextAug:
+    """
+    Text Augment from FastText
+    """
     def __init__(self, model_path: str):
         """
         :param str model_path: path of model file
@@ -16,7 +19,7 @@ class FastTextAug:
             self.model = KeyedVectors.load_word2vec_format(model_path)
         else:
             self.model = FastText.load(model_path)
-    def tokenize(self, text):
+    def tokenize(self, text: str):
         """
         Thai text tokenize for fasttext
 
@@ -40,6 +43,14 @@ class FastTextAug:
                 list_sent_new.append(i)
         return list_sent_new
     def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[str]:
+        """
+        :param str sentence: thai sentence
+        :param int n_sent: number sentence
+        :param float p: Probability of word
+
+        :return: list of synonyms
+        rtype: list
+        """
         self.sentence = self.tokenize(sentence)
         self.temp = []
         for i in range(n_sent):
