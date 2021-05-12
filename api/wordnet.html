@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -160,16 +163,16 @@
 <div class="section" id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="thaitextaug.wordnet.postype2wordnet">
-<code class="sig-prename descclassname"><span class="pre">thaitextaug.wordnet.</span></code><code class="sig-name descname"><span class="pre">postype2wordnet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.wordnet.postype2wordnet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="thaitextaug.wordnet.postype2wordnet">
+<span class="sig-prename descclassname"><span class="pre">thaitextaug.wordnet.</span></span><span class="sig-name descname"><span class="pre">postype2wordnet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thaitextaug.wordnet.postype2wordnet" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
-<dt id="thaitextaug.wordnet.WordNetAug">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">thaitextaug.wordnet.</span></code><code class="sig-name descname"><span class="pre">WordNetAug</span></code><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="thaitextaug.wordnet.WordNetAug">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">thaitextaug.wordnet.</span></span><span class="sig-name descname"><span class="pre">WordNetAug</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
-<dt id="thaitextaug.wordnet.WordNetAug.augment">
-<code class="sig-name descname"><span class="pre">augment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sentence:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">tokenize:</span> <span class="pre">object</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">word_tokenize&gt;</span></em>, <em class="sig-param"><span class="pre">max_syn_sent:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">6</span></em>, <em class="sig-param"><span class="pre">postag:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">postag_corpus:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'lst20'</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.augment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="thaitextaug.wordnet.WordNetAug.augment">
+<span class="sig-name descname"><span class="pre">augment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sentence:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">tokenize:</span> <span class="pre">object</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">word_tokenize&gt;</span></em>, <em class="sig-param"><span class="pre">max_syn_sent:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">6</span></em>, <em class="sig-param"><span class="pre">postag:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">postag_corpus:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'lst20'</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.augment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text Augment using wordnet</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -191,8 +194,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="thaitextaug.wordnet.WordNetAug.find_synonyms">
-<code class="sig-name descname"><span class="pre">find_synonyms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postag_corpus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'lst20'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.find_synonyms" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="thaitextaug.wordnet.WordNetAug.find_synonyms">
+<span class="sig-name descname"><span class="pre">find_synonyms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postag_corpus</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'lst20'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#thaitextaug.wordnet.WordNetAug.find_synonyms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find synonyms from wordnet</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
