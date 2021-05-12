@@ -33,7 +33,7 @@ class Thai2fitAug:
         :param int n_sent: number sentence
         :param float p: Probability of word
 
-        :return: list of synonyms
+        :return: list of text augment
         :rtype: List[Tuple[str]]
         """
         return self.aug.augment(sentence, n_sent, p)
