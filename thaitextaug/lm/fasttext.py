@@ -14,7 +14,7 @@ class FastTextAug:
         :param str model_path: path of model file
         """
         if model_path.endswith('.bin'):
-            self.model = FastText_gensim.load_fasttext_format(model_path)
+            self.model = FastText_gensim.load_facebook_vectors(model_path)
         elif model_path.endswith('.vec'):
             self.model = KeyedVectors.load_word2vec_format(model_path)
         else:
