@@ -42,7 +42,7 @@ class FastTextAug:
             else:
                 list_sent_new.append(i)
         return list_sent_new
-    def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[str]:
+    def augment(self, sentence: str, n_sent: int = 1, p:float = 0.7) -> List[str]:
         """
         :param str sentence: thai sentence
         :param int n_sent: number sentence

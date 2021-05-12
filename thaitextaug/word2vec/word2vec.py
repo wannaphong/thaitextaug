@@ -36,7 +36,7 @@ class Word2VecAug:
             else:
                 list_sent_new.append([i])
         return list_sent_new
-    def augment(self, sentence: str, n_sent: int = 1, p:int = 0.7) -> List[Tuple[str]]:
+    def augment(self, sentence: str, n_sent: int = 1, p:float = 0.7) -> List[Tuple[str]]:
         """
         :param str sentence: text sentence
         :param int n_sent: max number for synonyms sentence

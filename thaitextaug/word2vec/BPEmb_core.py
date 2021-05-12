@@ -25,7 +25,7 @@ class BPEmbAug:
         Load BPEmb model
         """
         self.aug = Word2VecAug(self.model, tokenize=self.tokenizer, type="model")
-    def augment(self, sentence: str, n_sent: int = 1, p = 0.7)  -> List[Tuple[str]]:
+    def augment(self, sentence: str, n_sent: int = 1, p: float = 0.7)  -> List[Tuple[str]]:
         """
         Text Augment using word2vec from BPEmb
 
