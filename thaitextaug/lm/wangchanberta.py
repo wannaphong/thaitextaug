@@ -14,25 +14,11 @@ from transformers import (
     pipeline,
 )
 import random
-#thai2transformers
 from typing import List
 import thai2transformers
 from thai2transformers.preprocess import process_transformers
 
 model_name = "airesearch/wangchanberta-base-att-spm-uncased"
-
-
-target_tokenizer = CamembertTokenizer
-tokenizer = CamembertTokenizer.from_pretrained(
-                                    model_name ,
-                                    revision='main')
-tokenizer.additional_special_tokens = ['<s>NOTUSED', '</s>NOTUSED', '<_>']
-
-#pipeline
-fill_mask = pipeline(task='fill-mask',
-         tokenizer=tokenizer,
-         model = f'{model_name}',
-         revision = 'main',)
 
 
 class Thai2transformersAug:
@@ -49,17 +35,18 @@ class Thai2transformersAug:
             model = f'{self.model_name}',
             revision = 'main',)
     def generate(self, sentence: str, num_replace_tokens: int=3):
+        self.sent2 = []
         self.input_text = process_transformers(sentence)
-        sent = tokenizer.tokenize(self.input_text)
+        sent = self.tokenizer.tokenize(self.input_text)
         if len(list(set(sent))) < num_replace_tokens:
             num_replace_tokens = len(list(set(sent)))
         masked_text = self.input_text
         for i in range(num_replace_tokens):
             replace_token = random.choice(sent)
             masked_text = masked_text.replace(replace_token, f"{self.fill_mask.tokenizer.mask_token}",1)
-            self.sent2+=[j['sequence'] for j in self.fill_mask(masked_text+'<pad>') if j['sequence'] not in self.sent2]
+            self.sent2+=[j for j in self.fill_mask(masked_text+'<pad>')]
             masked_text = self.input_text
-            sent = tokenizer.tokenize(self.input_text)
+            sent = self.tokenizer.tokenize(self.input_text)
         return self.sent2
 
     def augment(self, sentence: str, num_replace_tokens: int=3) -> List[str]:
