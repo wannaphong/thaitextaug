@@ -22,6 +22,7 @@ jobs:
         pip install bpemb
         pip install boto smart_open sphinx sphinx-rtd-theme pythainlp gensim transformers python-Levenshtein sentencepiece emoji tqdm datasets tokenizers
         pip install --no-dependencies thai2transformers
+        pip install -e .
     - name: Build sphinx documentation
       run: |
         cd docs && make html
