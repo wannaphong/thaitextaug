@@ -18,7 +18,7 @@ class Word2VecAug:
             self.model = word2vec.KeyedVectors.load_word2vec_format(model, binary=True)
         else:
             self.model = model
-        self.dict_wv = list(self.model.vocab.keys())
+        self.dict_wv = list(self.model.key_to_index.keys())
     def modify_sent(self,sent, p = 0.7) -> List[List[str]]:
         """
         :param str sent: text sentence
