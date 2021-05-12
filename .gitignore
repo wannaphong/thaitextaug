@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 *.xml
 *.iml
+notebooks/cc.th.300.vec
