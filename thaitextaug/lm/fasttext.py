@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import List, Tuple
-from gensim.models.fasttext import FastText
+from gensim.models.fasttext import FastText as FastText_gensim
 from pythainlp.tokenize import word_tokenize
 from gensim.models.keyedvectors import KeyedVectors
 import random
@@ -14,11 +14,11 @@ class FastTextAug:
         :param str model_path: path of model file
         """
         if model_path.endswith('.bin'):
-            self.model = FastText.load_fasttext_format(model_path)
+            self.model = FastText_gensim.load_fasttext_format(model_path)
         elif model_path.endswith('.vec'):
             self.model = KeyedVectors.load_word2vec_format(model_path)
         else:
-            self.model = FastText.load(model_path)
+            self.model = FastText_gensim.load(model_path)
     def tokenize(self, text: str)-> List[str]:
         """
         Thai text tokenize for fasttext
@@ -31,7 +31,7 @@ class FastTextAug:
         return word_tokenize(text, engine='icu')
     def modify_sent(self,sent: list, p: float = 0.7) -> Tuple[str]:
         list_sent_new = []
-        dict_wv = list(self.model.vocab.keys())
+        dict_wv = list(self.model.key_to_index.keys())
         for i in sent:
             if i in dict_wv:
                 w = [j for j,v in self.model.most_similar(i) if v>=p]
