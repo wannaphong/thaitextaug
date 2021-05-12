@@ -1,6 +1,6 @@
 # ThaiTextAug
 
-Thai Text Augmentation: Tool for Thai Text Augmentation
+Thai Text Augmentation: Thai Text Augmentation Tool
 
 ## Install
 
