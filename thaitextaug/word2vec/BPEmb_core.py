@@ -5,6 +5,10 @@ from typing import List, Tuple
 
 
 class BPEmbAug:
+    """
+    Thai Text Augment using word2vec from BPEmb
+    BPEmb: `github.com/bheinzerling/bpemb <https://github.com/bheinzerling/bpemb>`_
+    """
     def __init__(self, lang: str = "th", vs:int = 100000, dim: int = 300):
         self.bpemb_temp = BPEmb(lang=lang, dim=dim, vs= vs)
         self.model = self.bpemb_temp.emb
@@ -17,12 +21,12 @@ class BPEmbAug:
         return self.bpemb_temp.encode(text)
     def load_w2v(self):
         """
-        Load bpemb model
+        Load BPEmb model
         """
         self.aug = Word2VecAug(self.model, tokenize=self.tokenizer, type="model")
     def augment(self, sentence: str, n_sent: int = 1, p = 0.7)  -> List[Tuple[str]]:
         """
-        Text Augment using word2vec from bpemb
+        Text Augment using word2vec from BPEmb
 
         :param str sentence: thai sentence
         :param int n_sent: number sentence
