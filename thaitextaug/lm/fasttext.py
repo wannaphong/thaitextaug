@@ -44,6 +44,10 @@ class FastTextAug:
         return list_sent_new
     def augment(self, sentence: str, n_sent: int = 1, p:float = 0.7) -> List[str]:
         """
+        Text Augment from FastText
+
+        You wants to download thai model from https://fasttext.cc/docs/en/crawl-vectors.html.
+
         :param str sentence: thai sentence
         :param int n_sent: number sentence
         :param float p: Probability of word

@@ -59,7 +59,7 @@ setup(
     ],
     project_urls={
         "Documentation": "https://github.com/wannaphong/thaitextaug",
-        "Tutorials": "https://github.com/wannaphong/thaitextaug",
+        "Tutorials": "https://github.com/wannaphong/thaitextaug/tree/main/notebooks",
         "Source Code": "https://github.com/wannaphong/thaitextaug",
         "Bug Tracker": "https://github.com/wannaphong/thaitextaug/issues",
     },
