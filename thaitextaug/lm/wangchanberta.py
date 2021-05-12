@@ -57,7 +57,7 @@ class Thai2transformersAug:
         for i in range(num_replace_tokens):
             replace_token = random.choice(sent)
             masked_text = masked_text.replace(replace_token, f"{self.fill_mask.tokenizer.mask_token}",1)
-            self.sent2+=[j['sequence'] for j in self.fill_mask(masked_text+'<pad>')]
+            self.sent2+=[j['sequence'] for j in self.fill_mask(masked_text+'<pad>') if j['sequence'] not in self.sent2]
             masked_text = self.input_text
             sent = tokenizer.tokenize(self.input_text)
         return self.sent2
@@ -74,7 +74,10 @@ class Thai2transformersAug:
         """
         self.sent2 = []
         try:
-            return self.generate(sentence, num_replace_tokens)
+            self.sent2 = self.generate(sentence, num_replace_tokens)
+            if self.sent2 == []:
+                self.sent2 = self.generate(sentence, num_replace_tokens)
+            return self.sent2
         except:
             if len(self.sent2) > 0:
                 return self.sent2
