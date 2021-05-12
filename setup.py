@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 requirements = [
     "pythainlp>=2.0",
     "bpemb",
-    "gensim",
+    "gensim>=4.0.0",
     "nltk"
     #"transformers",
     #"thai2transformers"
@@ -15,7 +15,7 @@ requirements = [
 
 extras = {
     "fasttext":[
-        "gensim",
+        "gensim>=4.0.0",
         "PyICU"
     ],
     "wangchanberta":[
@@ -25,7 +25,7 @@ extras = {
     "full":[
         "thai2transformers",
         "torch==1.4.0",
-        "gensim",
+        "gensim>=4.0.0",
         "PyICU"
     ]
 }
@@ -33,7 +33,7 @@ extras = {
 
 setup(
     name="thaitextaug",
-    version="0.0.1.dev4",
+    version="0.0.1.dev5",
     description="Thai Text Augmentation",
     long_description=readme,
     long_description_content_type="text/markdown",
