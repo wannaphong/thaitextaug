@@ -13,10 +13,27 @@ requirements = [
     #"thai2transformers"
 ]
 
+extras = {
+    "fasttext":[
+        "gensim",
+        "icu"
+    ],
+    "wangchanberta":[
+        "thai2transformers",
+        "torch==1.4.0"
+    ],
+    "full":[
+        "thai2transformers",
+        "torch==1.4.0",
+        "gensim",
+        "icu"
+    ]
+}
+
 
 setup(
     name="thaitextaug",
-    version="0.0.1.dev0",
+    version="0.0.1.dev1",
     description="Thai Text Augmentation",
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -33,6 +50,7 @@ setup(
     #},
     include_package_data=True,
     install_requires=requirements,
+    extras_require=extras,
     license="Apache Software License 2.0",
     zip_safe=False,
     keywords=[
