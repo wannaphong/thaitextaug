@@ -16,7 +16,7 @@ requirements = [
 extras = {
     "fasttext":[
         "gensim",
-        "icu"
+        "PyICU"
     ],
     "wangchanberta":[
         "thai2transformers",
@@ -26,7 +26,7 @@ extras = {
         "thai2transformers",
         "torch==1.4.0",
         "gensim",
-        "icu"
+        "PyICU"
     ]
 }
 
