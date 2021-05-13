@@ -38,16 +38,15 @@ class Thai2transformersAug:
         self.sent2 = []
         self.input_text = process_transformers(sentence)
         sent = self.tokenizer.tokenize(self.input_text)
+        sent.remove('▁')
         if len(list(set(sent))) < num_replace_tokens:
             num_replace_tokens = len(list(set(sent)))
         masked_text = self.input_text
         for i in range(num_replace_tokens):
-            sent.remove('▁')
             replace_token = random.choice(sent)
             masked_text = masked_text.replace(replace_token, f"{self.fill_mask.tokenizer.mask_token}",1)
             self.sent2+=[str(j['sequence']).replace('<s> ','').replace('</s>','') for j in self.fill_mask(masked_text+'<pad>') if j['sequence'] not in self.sent2]
             masked_text = self.input_text
-            sent = self.tokenizer.tokenize(self.input_text)
         return self.sent2
 
     def augment(self, sentence: str, num_replace_tokens: int=3) -> List[str]:

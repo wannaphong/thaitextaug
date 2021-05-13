@@ -33,7 +33,7 @@ extras = {
 
 setup(
     name="thaitextaug",
-    version="0.0.2",
+    version="0.0.3",
     description="Thai Text Augmentation",
     long_description=readme,
     long_description_content_type="text/markdown",
