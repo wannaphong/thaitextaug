@@ -2,6 +2,12 @@
 
 Thai Text Augmentation: Thai Text Augmentation Tool
 
+## Support
+
+- WordNet
+- Word2Vec (BPEmb, Thai2Fit)
+- LM (Thai2transformers, FastText)
+
 ## Install
 
 ```sh
