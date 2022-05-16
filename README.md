@@ -1,5 +1,7 @@
 # ThaiTextAug
 
+> Now, This poject has merge to PyThaiNLP. You can use by pythainlp.augment. https://pythainlp.github.io/docs/3.0/api/augment.html
+
 Thai Text Augmentation: Thai Text Augmentation Tool
 
 ## Support
